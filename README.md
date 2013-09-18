@@ -1,6 +1,8 @@
 Doorman
 =======
 
+Build status: [![Build Status](https://travis-ci.org/BattleRattle/doorman.png?branch=master)](https://travis-ci.org/BattleRattle/doorman)
+
 Doorman is an RFC-compliant implementation of the TOTP (Time-Based One-Time Passsword, RFC 6238)
 algorithm, which is commonly used for Two Factor Authentication.
 
