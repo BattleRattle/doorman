@@ -1,0 +1,14 @@
+# OS generated
+.DS_Store
+Thumbs.db
+
+# IDE generated
+.idea
+nbproject/
+
+# Composer generated
+vendor/
+composer.lock
+
+# Others
+phpunit.xml

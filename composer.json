@@ -1,0 +1,18 @@
+{
+    "name": "battlerattle/doorman",
+    "description": "RFC compliant Two Factor Authentication for Time-Based One-Time Password and HMAC-Based One-Time Password algorithm",
+    "keywords": ["RFC 6238", "TOTP", "RFC 4226", "HOTP", "Two Factor Authentication", "One-time password", "OATH"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Norman Soetbeer",
+            "email": "norman.soetbeer@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "BattleRattle\\Doorman": "src/",
+            "BattleRattle\\Tests\\Doorman": "tests/"
+        }
+    }
+}
