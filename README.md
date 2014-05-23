@@ -28,7 +28,7 @@ Or add `battlerattle/doorman` to your `composer.json`:
 
 ```
 "require": {
-    "battlerattle": "1.0.*@dev"
+    "battlerattle/doorman": "1.0.*@dev"
 },
 ```
 
