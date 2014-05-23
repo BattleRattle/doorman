@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Doorman package.
+ *
+ * (c) Norman Soetbeer <norman.soetbeer@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 /**
  * This example shows, how you can generate a new key for a user.
  * It is compliant with Google Authenticator.
