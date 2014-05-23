@@ -10,9 +10,9 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "BattleRattle\\Doorman": "src/",
-            "BattleRattle\\Tests\\Doorman": "tests/"
+        "psr-4": {
+            "BattleRattle\\Doorman\\": "src/",
+            "BattleRattle\\Tests\\Doorman\\": "tests/"
         }
     },
     "extra": {
