@@ -9,5 +9,4 @@ matrix:
         - php: nightly
 
 before_script:
-- composer self-update
-- composer dumpautoload
+- composer install
