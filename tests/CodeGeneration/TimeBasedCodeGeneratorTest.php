@@ -12,8 +12,9 @@
 namespace BattleRattle\Tests\Doorman\CodeGeneration;
 
 use BattleRattle\Doorman\CodeGeneration\TimeBasedCodeGenerator;
+use PHPUnit\Framework\TestCase;
 
-class TimeBasedCodeGeneratorTest extends \PHPUnit_Framework_TestCase
+class TimeBasedCodeGeneratorTest extends TestCase
 {
     /**
      * @dataProvider provideRfcSha1

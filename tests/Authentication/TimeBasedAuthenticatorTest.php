@@ -12,19 +12,21 @@
 namespace BattleRattle\Tests\Doorman\Authentication;
 
 use BattleRattle\Doorman\Authentication\TimeBasedAuthenticator;
+use BattleRattle\Doorman\CodeGeneration\TotpGeneratorInterface;
+use PHPUnit\Framework\TestCase;
 
-class TimeBasedAuthenticatorTest extends \PHPUnit_Framework_TestCase
+class TimeBasedAuthenticatorTest extends TestCase
 {
     private $generator;
     private $now;
 
     public function setUp()
     {
-        $this->generator = $this->getmock('BattleRattle\\Doorman\\CodeGeneration\\TotpGeneratorInterface');
+        $this->generator = $this->createMock(TotpGeneratorInterface::class);
         $this->generator->expects($this->any())
             ->method('getTimeStep')
             ->with()
-            ->will($this->returnValue(30));
+            ->willReturn(30);
 
         $this->now = \DateTime::createFromFormat('U', 1234567890);
     }
@@ -35,7 +37,7 @@ class TimeBasedAuthenticatorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('generateCode')
             ->with('fookey', 7, $this->now)
-            ->will($this->returnValue('barcode'));
+            ->willReturn('barcode');
 
         $authenticator = new TimeBasedAuthenticator(0, $this->generator);
         $this->assertTrue($authenticator->authenticate('fookey', 'barcode', $this->now));
@@ -47,7 +49,7 @@ class TimeBasedAuthenticatorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('generateCode')
             ->with('fookey', 7, $this->now)
-            ->will($this->returnValue('bazcode'));
+            ->willReturn('bazcode');
 
         $authenticator = new TimeBasedAuthenticator(0, $this->generator);
         $this->assertFalse($authenticator->authenticate('fookey', 'barcode', $this->now));
@@ -61,7 +63,7 @@ class TimeBasedAuthenticatorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->at(1))
             ->method('generateCode')
             ->with('fookey', 7, $this->isInstanceOf('DateTime'))
-            ->will($this->returnValue('bazcode'));
+            ->willReturn('bazcode');
 
         $this->generator
             ->expects($this->at(2))
@@ -73,7 +75,7 @@ class TimeBasedAuthenticatorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->at(3))
             ->method('generateCode')
             ->with('fookey', 7, $this->isInstanceOf('DateTime'))
-            ->will($this->returnValue('barcode'));
+            ->willReturn('barcode');
 
         $authenticator = new TimeBasedAuthenticator(1, $this->generator);
         $this->assertTrue($authenticator->authenticate('fookey', 'barcode', $this->now));
@@ -85,7 +87,7 @@ class TimeBasedAuthenticatorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->exactly(5))
             ->method('generateCode')
             ->with('fookey', 7, $this->isInstanceOf('DateTime'))
-            ->will($this->returnValue('bazcode'));
+            ->willReturn('bazcode');
 
         $authenticator = new TimeBasedAuthenticator(2, $this->generator);
         $this->assertFalse($authenticator->authenticate('fookey', 'barcode', $this->now));

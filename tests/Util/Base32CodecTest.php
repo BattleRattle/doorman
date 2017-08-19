@@ -12,8 +12,9 @@
 namespace BattleRattle\Tests\Doorman\Util;
 
 use BattleRattle\Doorman\Util\Base32Codec;
+use PHPUnit\Framework\TestCase;
 
-class Base32CodecTest extends \PHPUnit_Framework_TestCase
+class Base32CodecTest extends TestCase
 {
     /**
      * @dataProvider proviceRfc4648TestData
