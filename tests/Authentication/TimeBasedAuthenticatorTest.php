@@ -22,7 +22,7 @@ class TimeBasedAuthenticatorTest extends TestCase
 
     public function setUp()
     {
-        $this->generator = $this->createMock(TimeBasedAuthenticator::class);
+        $this->generator = $this->createMock(TotpGeneratorInterface::class);
         $this->generator->expects($this->any())
             ->method('getTimeStep')
             ->with()
