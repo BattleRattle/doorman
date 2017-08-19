@@ -12,8 +12,9 @@
 namespace BattleRattle\Tests\Doorman\Authentication;
 
 use BattleRattle\Doorman\Authentication\TimeBasedAuthenticator;
+use PHPUnit\Framework\TestCase;
 
-class TimeBasedAuthenticatorTest extends \PHPUnit_Framework_TestCase
+class TimeBasedAuthenticatorTest extends TestCase
 {
     private $generator;
     private $now;
